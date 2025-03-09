@@ -1,11 +1,11 @@
 body {
   margin: 0;
   padding: o;
+  color: #fff;
 }
 
 a {
   font-weight: 500;
-  color: #000;
   text-decoration: inherit;
 }
 
