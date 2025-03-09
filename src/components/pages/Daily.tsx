@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import List from "../common/List";
+import { UrlList } from "../../types/type";
+import ListItem from "../common/ListItem";
 
 const Button = styled.button`
   border-radius: 5px;
@@ -26,13 +29,6 @@ const Button = styled.button`
     );
   }
 `;
-const Ul = styled.ul``;
-const Li = styled.li``;
-
-type UrlList = {
-  name: string;
-  url: string;
-};
 
 const Daily = () => {
   const [urlList, setUrlList] = useState<UrlList[]>([]);
@@ -58,15 +54,11 @@ const Daily = () => {
   return (
     <div>
       <Button onClick={clickHandler}>前日分のURLを取得</Button>
-      <Ul>
+      <List>
         {urlList.map((item) => (
-          <Li key={item.url}>
-            <a onClick={copy} href={item.url} target="_blank">
-              {item.name}
-            </a>
-          </Li>
+          <ListItem item={item} copy={copy} />
         ))}
-      </Ul>
+      </List>
     </div>
   );
 };
