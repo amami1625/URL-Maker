@@ -7,25 +7,30 @@ const HeaderElm = styled.header`
   margin-bottom: 16px;
   background-color: oklch(0.746 0.16 232.661);
 `;
-const Ul = styled.ul`;
-`;
 const Li = styled.li`
   display: inline-block;
   padding: 4px;
-  `;
+`;
+const StyledLink = styled(Link)`
+  font-weight: bold;
+  color: #fff;
+  &:hover {
+    opacity: 0.8;
+  }
+`;
 
 const Header = () => {
   return (
     <HeaderElm>
       <h1>URLメーカー(β)</h1>
-      <Ul>
+      <ul>
         <Li>
-          <Link to="/">前日</Link>
+          <StyledLink to="/">前日</StyledLink>
         </Li>
         <Li>
-          <Link to="/monthly">月次</Link>
+          <StyledLink to="/monthly">月次</StyledLink>
         </Li>
-      </Ul>
+      </ul>
     </HeaderElm>
   );
 };
