@@ -16,9 +16,13 @@ const Daily = () => {
   const clickHandler = () => {
     const baseUrl: string[] = import.meta.env.VITE_URL_LISTS.split(",");
     const nameList: string[] = import.meta.env.VITE_NAMES.split(",");
+    const y = String(new Date().getFullYear());
+    const m = String(new Date().getMonth() + 1).padStart(2, "0");
+    const d = String(new Date().getDate() -1).padStart(2, "0");
+    const param = `${y}${m}${d}/`
     const data = baseUrl.map((url, i) => ({
       name: nameList[i],
-      url,
+      url: url + param,
     }));
     setUrlList(data);
   };
@@ -29,7 +33,7 @@ const Daily = () => {
 
   return (
     <div>
-      <Button onClick={clickHandler}>当日分のURLを取得</Button>
+      <Button onClick={clickHandler}>前日分のURLを取得</Button>
       <Ul>
         {urlList.map((item) => (
           <Li key={item.url}>
