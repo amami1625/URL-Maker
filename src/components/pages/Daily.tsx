@@ -56,7 +56,7 @@ const Daily = () => {
       <Button onClick={clickHandler}>前日分のURLを取得</Button>
       <List>
         {urlList.map((item) => (
-          <ListItem item={item} copy={copy} />
+          <ListItem item={item} copy={copy} key={item.url}/>
         ))}
       </List>
     </div>
