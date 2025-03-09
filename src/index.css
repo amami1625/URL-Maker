@@ -2,6 +2,9 @@ body {
   margin: 0;
   padding: o;
   color: #fff;
+  font-family: "M PLUS 1p", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 a {
