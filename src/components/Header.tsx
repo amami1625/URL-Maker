@@ -4,6 +4,7 @@ import styled from "styled-components";
 const HeaderElm = styled.header`
   text-align: center;
   padding: 8px 0;
+  margin-bottom: 16px;
   background-color: oklch(0.746 0.16 232.661);
 `;
 const Ul = styled.ul`;
