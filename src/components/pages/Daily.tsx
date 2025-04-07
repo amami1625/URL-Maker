@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import List from "../common/List";
 import { UrlList } from "../../types/type";
 import ListItem from "../common/ListItem";
 import Button from "../common/Button";
+import { copy } from "../../functions/function";
 
 const Daily = () => {
   const [urlList, setUrlList] = useState<UrlList[]>([]);
@@ -19,10 +20,6 @@ const Daily = () => {
       url: url + param,
     }));
     setUrlList(data);
-  };
-
-  const copy = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    navigator.clipboard.writeText(e.currentTarget.href);
   };
 
   return (

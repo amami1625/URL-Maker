@@ -3,6 +3,7 @@ import { UrlList } from "../../types/type";
 import List from "../common/List";
 import ListItem from "../common/ListItem";
 import Button from "../common/Button";
+import { copy } from "../../functions/function";
 
 const Monthly = () => {
   const baseUrl: string[] = import.meta.env.VITE_URL_LISTS.split(",");
@@ -31,10 +32,6 @@ const Monthly = () => {
       });
     }
     setUrlList(data);
-  };
-
-  const copy = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    navigator.clipboard.writeText(e.currentTarget.href);
   };
 
   return (
