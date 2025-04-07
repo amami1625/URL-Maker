@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { UrlList } from "../../types/type";
 import List from "../common/List";
 import ListItem from "../common/ListItem";
+import Button from "../common/Button";
 
 const Monthly = () => {
   const [baseUrl, setBaseUrl] = useState<string[]>([]);
@@ -55,7 +56,7 @@ const Monthly = () => {
         ))}
       </select>
       <input onChange={changeMonth} type="month" />
-      <button onClick={clickHandler}>データを取得</button>
+      <Button text="月間のURLを取得" handler={clickHandler}/>
       <List>
         {urlList.map((item) => (
           <ListItem item={item} copy={copy} key={item.url} />
