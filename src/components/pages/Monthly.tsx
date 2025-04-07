@@ -5,15 +5,12 @@ import ListItem from "../common/ListItem";
 import Button from "../common/Button";
 import { copy, getMonthlyDataArray } from "../../functions/function";
 import { baseUrl, nameList } from "../../consts/lists";
+import { initDate } from "../../consts/montyly";
 
 const Monthly = () => {
   const [hallNumber, setHallNumber] = useState<number>(0);
   const [urlList, setUrlList] = useState<UrlList[]>([]);
-  const [date, setDate] = useState<string>(
-    `${String(new Date().getFullYear())}${String(
-      new Date().getMonth() + 1
-    ).padStart(2, "0")}`
-  );
+  const [date, setDate] = useState<string>(initDate);
 
   const changeHall = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setHallNumber(Number(e.target.value));
