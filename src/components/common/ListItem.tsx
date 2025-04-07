@@ -4,7 +4,6 @@ import { UrlList } from "../../types/type";
 const Li = styled.li`
   padding: 8px;
   border-bottom: dashed 2px #6594e0;
-  // border-bottom: 1px solid #ccc;
 `;
 
 const A = styled.a`
@@ -28,7 +27,7 @@ type ListItemProps = {
 const ListItem = ({ item, copy }: ListItemProps) => {
   return (
     <Li>
-      <A onClick={copy} href={item.url} target="_blank">
+      <A onClick={copy} href={item.url} target="_blank" rel="noopener noreferrer">
         {item.name}
         <Span>{item.url}</Span>
       </A>
