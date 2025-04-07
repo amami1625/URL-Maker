@@ -1,15 +1,19 @@
 import React, { useState } from "react";
-import { UrlList } from "../../types/type";
+import { MonthlyData, UrlList } from "../../types/type";
 import List from "../common/List";
 import ListItem from "../common/ListItem";
 import Button from "../common/Button";
-import { copy } from "../../functions/function";
+import { copy, getMonthlyDataArray } from "../../functions/function";
 import { baseUrl, nameList } from "../../consts/lists";
 
 const Monthly = () => {
   const [hallNumber, setHallNumber] = useState<number>(0);
   const [urlList, setUrlList] = useState<UrlList[]>([]);
-  const [date, setDate] = useState<string>(`${String(new Date().getFullYear())}${String(new Date().getMonth() + 1).padStart(2, "0")}`);
+  const [date, setDate] = useState<string>(
+    `${String(new Date().getFullYear())}${String(
+      new Date().getMonth() + 1
+    ).padStart(2, "0")}`
+  );
 
   const changeHall = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setHallNumber(Number(e.target.value));
@@ -20,17 +24,13 @@ const Monthly = () => {
   };
 
   const clickHandler = () => {
-    const y = Number(date.slice(0, 4));
-    const m = Number(date.slice(4, 6));
-    const numberOfDays = new Date(y, m, 0).getDate();
-    const data = [];
-    for (let i = 1; i <= numberOfDays; i++) {
-      data.push({
-        name: `${nameList[hallNumber]} (${y}/${m}/${i})`,
-        url: `${baseUrl[hallNumber]}${y}${String(m).padStart(2, "0")}${String(i).padStart(2, "0")}`
-      });
-    }
-    setUrlList(data);
+    const data: MonthlyData = {
+      date,
+      hallName: nameList[hallNumber],
+      url: baseUrl[hallNumber],
+    };
+    const monthlyData = getMonthlyDataArray(data);
+    setUrlList(monthlyData);
   };
 
   return (
@@ -43,7 +43,7 @@ const Monthly = () => {
         ))}
       </select>
       <input onChange={changeMonth} type="month" />
-      <Button text="月間のURLを取得" handler={clickHandler}/>
+      <Button text="月間のURLを取得" handler={clickHandler} />
       <List>
         {urlList.map((item) => (
           <ListItem item={item} copy={copy} key={item.url} />
