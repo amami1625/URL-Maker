@@ -3,12 +3,11 @@ import { UrlList } from "../../types/type";
 
 const Li = styled.li`
   padding: 8px;
-  border-bottom: dashed 2px #6594e0;
+  border-bottom: dashed 2px #ffffff;
 `;
 
 const A = styled.a`
   font-size: 20px;
-  color: #6594e0;
   &:hover {
     opacity: 0.7;
   }

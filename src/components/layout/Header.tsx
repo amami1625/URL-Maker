@@ -5,7 +5,7 @@ const HeaderElm = styled.header`
   text-align: center;
   padding: 8px 0;
   margin-bottom: 16px;
-  background-color: oklch(0.746 0.16 232.661);
+  border-bottom: 1px solid gray;
 `;
 const Li = styled.li`
   display: inline-block;
