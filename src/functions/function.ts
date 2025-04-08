@@ -12,18 +12,12 @@ const getDate = (date: string) => {
 };
 
 const getMonthlyDataArray = (data: MonthlyData) => {
-  const { date, hallName, url } = data
-  const [ y, m, numberOfDays ] = getDate(date);
-  const monthlyData = [];
-  for (let i = 1; i <= numberOfDays; i++) {
-    monthlyData.push({
-      name: `${hallName} (${y}/${m}/${i})`,
-      url: `${url}${y}${String(m).padStart(2, "0")}${String(i).padStart(
-        2,
-        "0"
-      )}`,
-    });
-  }
+  const { date, hallName, url } = data;
+  const [y, m, numberOfDays] = getDate(date);
+  const monthlyData = Array.from({ length: numberOfDays }, (_, i) => ({
+    name: `${hallName} (${y}/${m}/${i + 1})`,
+    url: `${url}${y}${String(m).padStart(2, "0")}${String(i + 1).padStart(2, "0")}`,
+  }));
   return monthlyData;
 };
 
